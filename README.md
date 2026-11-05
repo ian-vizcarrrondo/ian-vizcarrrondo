@@ -1,12 +1,4 @@
 <p align="center">
-  <img src="assets/desktop-orb.svg" width="78" height="76" alt="A friendly computer inside a glossy cyan bubble" />
-</p>
-
-<h2 align="center">Hi, I'm Ian.</h2>
-
-<p align="center">I build friendly desktop tools and automate the repetitive stuff.</p>
-
-<p align="center">
   <a href="https://github.com/ian-vizcarrrondo/filebuddy"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/filebuddy-dark.svg" /><img src="assets/filebuddy.svg" width="210" height="66" alt="File Buddy: Files, photos & 3D" /></picture></a>
   <a href="https://github.com/ian-vizcarrrondo/pc-biometrics"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/pulse-dark.svg" /><img src="assets/pulse.svg" width="210" height="66" alt="Pulse: Your PC at a glance" /></picture></a>
   <a href="https://ian-vizcarrrondo.github.io/crypto-tweet-bot/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cryptodoggy-dark.svg" /><img src="assets/cryptodoggy.svg" width="210" height="66" alt="CryptoDoggy: Markets & automation" /></picture></a>
