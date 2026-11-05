@@ -1,0 +1,43 @@
+name: Refresh contribution bubbles
+
+on:
+  schedule:
+    - cron: '23 10 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/bubbles.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-bubbles
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Check calendar parsing
+        run: node --test scripts/calendar.test.cjs
+      - name: Generate bubble animations
+        env:
+          PROFILE_USERNAME: ${{ github.repository_owner }}
+        run: node scripts/generate-bubbles.cjs
+      - name: Save updated artwork
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/aero-bubbles.svg assets/aero-bubbles-dark.svg
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh contribution bubbles'
+            git push
+          fi
